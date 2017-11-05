@@ -1,0 +1,37 @@
+CXX = g++
+CXXFLAGS = -O2 -pedantic -Wall -Werror -std=c++11
+LDFLAGS = 
+
+all: huffman
+
+bin:
+	mkdir -p bin
+
+huffman: bin bin/main.o bin/huffman.o bin/bit_stream.o
+	$(CXX) bin/main.o bin/huffman.o bin/bit_stream.o -o bin/huffman $(LDFLAGS)
+
+bin/main.o: huffman/huffman/main.cpp huffman/huffman/huffman.h
+	$(CXX) $(CXXFLAGS) -c huffman/huffman/main.cpp -o bin/main.o
+
+bin/bit_stream.o: huffman/huffman/bit_stream.cpp huffman/huffman/bit_stream.h
+	$(CXX) $(CXXFLAGS) -c huffman/huffman/bit_stream.cpp -o bin/bit_stream.o
+
+bin/huffman.o: huffman/huffman/huffman.cpp huffman/huffman/huffman.h huffman/huffman/bit_stream.h
+	$(CXX) $(CXXFLAGS) -c huffman/huffman/huffman.cpp -o bin/huffman.o
+
+test: bin bin/test.o bin/autotest.o bin/huffman_test.o bin/huffman.o bin/bit_stream.o
+	$(CXX) bin/test.o bin/autotest.o bin/huffman_test.o bin/huffman.o bin/bit_stream.o -o bin/test $(LDFLAGS)
+
+bin/test.o: huffman/huffman/test.cpp huffman/huffman/huffman_test.h
+	$(CXX) $(CXXFLAGS) -c huffman/huffman/test.cpp -o bin/test.o
+
+bin/autotest.o: huffman/huffman/autotest.cpp huffman/huffman/autotest.h
+	$(CXX) $(CXXFLAGS) -c huffman/huffman/autotest.cpp -o bin/autotest.o
+
+bin/huffman_test.o: huffman/huffman/huffman.h huffman/huffman/huffman_test.cpp huffman/huffman/huffman_test.h
+	$(CXX) $(CXXFLAGS) -c huffman/huffman/huffman_test.cpp -o bin/huffman_test.o
+
+clean:
+	rm -rf ./bin
+
+.PHONY: clean all

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phonebook>
+    <human name="Ramina Valentinovna Citnikova">
+        <phone>35489285386974</phone>
+        <phone>551703902826675</phone>
+        <phone>3163202752440</phone>
+        <phone>278</phone>
+        <phone>687581</phone>
+        <phone>2811534610812894</phone>
+        <phone>564</phone>
+    </human>
+    <human name="Irina Romanovna Bolotnikova">
+        <phone>208213417872254467</phone>
+    </human>
+    <human name="Revekka Semenovna Strekalova">
+        <phone>49415</phone>
+        <phone>46146681018</phone>
+        <phone>8</phone>
+    </human>
+    <human name="Avreliya Georgievna Babicheva">
+        <phone>2668516</phone>
+        <phone>000895431299313223</phone>
+        <phone>5924382</phone>
+        <phone>3312645430081</phone>
+        <phone>737189314018</phone>
+        <phone>679</phone>
+        <phone>221585041241589060</phone>
+    </human>
+    <human name="Elena Evgenyevna Arsenyeva">
+    </human>
+</phonebook>
